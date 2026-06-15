@@ -3,7 +3,10 @@ import pandas as pd
 import numpy as np
 import json
 import joblib
+import os
 from io import BytesIO
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 import plotly.graph_objects as go
 import plotly.express as px
 import warnings
@@ -53,9 +56,9 @@ with st.sidebar:
 
 @st.cache_resource
 def load_models():
-    model = joblib.load("models/sia_model.pkl")
-    vectorizer = joblib.load("models/vectorizer.pkl")
-    scaler = joblib.load("models/scaler.pkl")
+    model = joblib.load(os.path.join(BASE_DIR, "models", "sia_model.pkl"))
+    vectorizer = joblib.load(os.path.join(BASE_DIR, "models", "vectorizer.pkl"))
+    scaler = joblib.load(os.path.join(BASE_DIR, "models", "scaler.pkl"))
     return model, vectorizer, scaler
 
 # Initialize session state
