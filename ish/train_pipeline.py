@@ -6,7 +6,9 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.ensemble import GradientBoostingClassifier
 
-os.makedirs("models", exist_ok=True)
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+MODELS_DIR = os.path.join(BASE_DIR, "models")
+os.makedirs(MODELS_DIR, exist_ok=True)
 
 
 def text_severity(subject, description):
@@ -48,7 +50,9 @@ def metadata_severity(hours, satisfaction, category):
     return np.clip(res_sev * 0.40 + sat_sev * 0.35 + cat_risk * 0.25, 0, 1)
 
 
-def train(csv_path="test_tickets.csv"):
+def train(csv_path=None):
+    if csv_path is None:
+        csv_path = os.path.join(BASE_DIR, "test_tickets.csv")
     print(f"Loading data from {csv_path}...")
     df = pd.read_csv(csv_path)
 
@@ -92,13 +96,13 @@ def train(csv_path="test_tickets.csv"):
     model.fit(X, y)
 
     # Save
-    joblib.dump(model, "models/sia_model.pkl")
-    joblib.dump(vectorizer, "models/vectorizer.pkl")
-    joblib.dump(scaler, "models/scaler.pkl")
+    joblib.dump(model, os.path.join(MODELS_DIR, "sia_model.pkl"))
+    joblib.dump(vectorizer, os.path.join(MODELS_DIR, "vectorizer.pkl"))
+    joblib.dump(scaler, os.path.join(MODELS_DIR, "scaler.pkl"))
 
-    print("Saved models/sia_model.pkl")
-    print("Saved models/vectorizer.pkl")
-    print("Saved models/scaler.pkl")
+    print(f"Saved {MODELS_DIR}/sia_model.pkl")
+    print(f"Saved {MODELS_DIR}/vectorizer.pkl")
+    print(f"Saved {MODELS_DIR}/scaler.pkl")
     print("Training complete.")
 
 
