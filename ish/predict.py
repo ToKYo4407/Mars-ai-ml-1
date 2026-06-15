@@ -3,6 +3,10 @@ import numpy as np
 import joblib
 import json
 import sys
+import os
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+MODELS_DIR = os.path.join(BASE_DIR, "models")
 
 
 def text_severity(subject, description):
@@ -92,9 +96,9 @@ def create_dossier(row, idx, inferred, assigned, signal_1, signal_2, confidence)
 
 def predict(csv_path):
     print("Loading models...")
-    model = joblib.load("models/sia_model.pkl")
-    vectorizer = joblib.load("models/vectorizer.pkl")
-    scaler = joblib.load("models/scaler.pkl")
+    model = joblib.load(os.path.join(MODELS_DIR, "sia_model.pkl"))
+    vectorizer = joblib.load(os.path.join(MODELS_DIR, "vectorizer.pkl"))
+    scaler = joblib.load(os.path.join(MODELS_DIR, "scaler.pkl"))
 
     print("Reading CSV...")
     df = pd.read_csv(csv_path)
