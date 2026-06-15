@@ -1,0 +1,21 @@
+Ticket_Subject,Ticket_Description,Priority_Level,Issue_Category,Resolution_Time_Hours,Satisfaction_Score,Ticket_Channel
+Production database outage,All customers unable to login and checkout,Low,Technical,1,1,Email
+Payment processing failure,Credit card transactions failing across platform,Low,Billing,2,1,Chat
+Website completely down,Homepage returning 500 errors for all users,Low,Technical,1,1,Web
+Feature request dark mode,Customer would like dark mode support,Critical,Feature_Request,72,5,Email
+Minor spelling mistake,Typo found in settings page,Critical,General,96,5,Chat
+Add export button,Request for CSV export functionality,High,Feature_Request,120,5,Web
+Unable to reset password,Several users reporting password reset failures,Medium,Technical,4,2,Email
+Invoice mismatch,Billing amount differs from contract pricing,Medium,Billing,12,2,Chat
+Intermittent API errors,Partner integrations failing periodically,Medium,Technical,6,2,Web
+Login page crash,Application crashes after entering credentials,Low,Technical,1,1,Email
+General account question,Customer asking about account limits,Medium,General,48,4,Chat
+Refund request,Customer requesting refund after cancellation,Low,Billing,24,3,Email
+Urgent security concern,User reports suspicious account activity,Low,Technical,2,1,Web
+Slow dashboard loading,Analytics dashboard loads in 10 seconds,High,Technical,24,3,Chat
+Feature enhancement request,Request for additional reporting filters,Low,Feature_Request,72,4,Email
+Broken checkout process,Orders cannot be completed by customers,Low,Technical,1,1,Web
+Account locked out,Large number of users unable to access accounts,Low,Technical,2,1,Email
+Subscription cancellation help,Customer needs assistance cancelling plan,Medium,General,24,3,Chat
+Data export issue,Export function produces incomplete files,Medium,Technical,8,2,Web
+Emergency service outage,Core service unavailable across multiple regions,Low,Technical,1,1,Email
